@@ -1,0 +1,42 @@
+Sublime config:
+
+http://upstre.am/blog/2011/07/sublime-text-2-with-rvm-on-osx/
+
+-  ~/bin/rvm_ruby:
+
+#!/usr/bin/env ruby
+
+file = File.expand_path(ARGV[0] || (STDERR.puts('you must specify a ruby file'); exit(-1)))
+dir = File.dirname file
+
+while dir.size > 1
+  if File.exist?(dir + '/.rvmrc')
+    exec <<-SCRIPT
+      source $HOME/.rvm/scripts/rvm ; 
+      cd #{dir} ; 
+      ruby #{file}
+    SCRIPT
+  else
+    dir = dir.sub(/\/[^\/]*$/, '')
+  end
+end
+
+puts "Could not find any .rvmrc above #{file}"
+exit -1
+
+- ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/Ruby/Ruby.sublime-build:
+
+{
+    "cmd": ["/Users/oshvets/bin/rvm_ruby", "$file"],
+    "file_regex": "^(...*?):([0-9]*):?([0-9]*)",
+    "selector": "source.ruby"
+}
+
+Rspec config for Sublime:
+
+cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages
+
+git clone git://github.com/SublimeText/RSpec.git
+
+assign RSpec Build System to file
+
