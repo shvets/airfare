@@ -2,8 +2,6 @@ require 'rubygems'
 
 $:.unshift(File::join(File::dirname(File::dirname(__FILE__)), "lib"))
 
-require 'date'
-
 require 'airfare/properties'
 require 'airfare/scraper'
 require 'airfare/response_parser'
@@ -42,7 +40,7 @@ class Airfare
 
           scraper = Scraper.new props
 
-          file.puts("*******************Dates: #{new_departure_date} --- #{new_return_date} *******************")
+          file.puts("******************* Dates: #{new_departure_date} --- #{new_return_date} *******************")
           puts "wait..."
           content = scraper.query(new_departure_date, new_return_date)
 
