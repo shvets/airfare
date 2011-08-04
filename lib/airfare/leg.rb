@@ -14,7 +14,10 @@ Leg = Struct.new :origination, :destination, :airline, :dummy1, :start_date, :st
   end
 
   def hours minutes
-    "#{minutes / 60}.#{(minutes%60)}"
+    "#{two_chars(minutes / 60)}:#{two_chars(minutes%60)}"
   end
 
+  def two_chars char
+    char.to_s.size == 1 ? "0#{char}" : char
+  end
 end

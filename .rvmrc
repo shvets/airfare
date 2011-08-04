@@ -2,4 +2,4 @@ rvm_trust_rvmrcs_flag=1
 rvm_gemset_create_on_use_flag=1
 export rvm_pretty_print_flag=1
 
-rvm use ruby-1.9.2@airfare
+rvm use ruby-1.9.2-p290@airfare

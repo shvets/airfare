@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    colorize (0.5.8)
     diff-lcs (1.1.2)
     json (1.5.3)
     mechanize (1.0.0)
@@ -19,6 +20,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  colorize
   json
   mechanize (= 1.0.0)
   rspec
